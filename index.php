@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="indexx.css">
     </head>
     <body>
-        <div class="main-form">
+        <div class="main-form"> 
             <h1>Welcome to the world of TIC TAC TOE Game:</h1>
 
          <!--   <form action="login.php" method="post">

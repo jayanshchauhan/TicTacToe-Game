@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="loginn.css">
     </head>
 
-<body>
+<body> 
 <!-- Handling of login form -->
 <div class="login-form">
     <h1>Login Form</h1>
