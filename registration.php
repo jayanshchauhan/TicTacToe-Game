@@ -18,8 +18,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $email=$_POST['email'];
     $phone=$_POST['phone'];
     $country=$_POST['country'];
-
-    
+                                
 
     $servername="localhost";
     $username="root";
