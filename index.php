@@ -19,6 +19,14 @@
                 <button type="register">Register</button>
             </form>
 -->
+<!--   <form action="login.php" method="post">
+                <button type="login">Login </button>
+            </form>
+            
+            <form action="registration.php" method="post">
+                <button type="register">Register</button>
+            </form>
+-->
 <form method="post">
 <button name ="login" type="login">Login </button>
 <?php
