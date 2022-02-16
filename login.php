@@ -1,4 +1,7 @@
-
+<?php
+// Start the session
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -11,14 +14,58 @@
     </head>
 
 <body> 
+
+<?php 
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $email=$_POST['email'];
+    $passwrd=$_POST['passwrd'];
+    $_SESSION['namee']="$email";
+ 
+    $servername="localhost";
+    $username="root";
+    $password="";
+    $database="userdetails";
+
+    $conn=mysqli_connect($servername,$username,$password,$database);
+
+    if(!$conn)
+    {
+        die("Sorry We failed to connect ".mysqli_connect_error());
+    }
+    else{
+        $sql="SELECT * FROM `user` WHERE Email_Id='$email' and Password='$passwrd'";
+        $result=mysqli_query($conn,$sql);
+        
+       
+
+        if($result->num_rows>0){
+            $row = mysqli_fetch_array($result);
+            $_SESSION['namee']=$row['Name'];
+    echo '<div class="alert alert-success">
+    <strong>Success!</strong>
+  </div>';
+       
+    header("location: welcome.php");
+
+    
+    
+    
+        }
+        else{
+            echo "Sorry You have not registered yet! Please register yourself first";
+        }
+    }
+}
+?>
+
 <!-- Handling of login form -->
 <div class="login-form">
     <h1>Login Form</h1>
-        <form action="#" method="post">
+        <form action="login.php" method="post">
             <p>Email Id</p>
-            <input type="text" name="user" placeholder="Enter your Email Id">
+            <input type="text" name="email" placeholder="Enter your Email Id">
             <p>Password</p>
-            <input type="text" name="password" placeholder="Enter your Password">
+            <input type="text" name="passwrd" placeholder="Enter your Password">
             <button type="submit">Login</button>
         </form>
         <form action="index.php" method="post">
