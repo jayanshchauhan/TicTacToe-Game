@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $name=$_POST['name'];
     $email=$_POST['email'];
     $phone=$_POST['phone'];
-    $country=$_POST['country'];
+    $passwrd=$_POST['passwrd'];
                                 
 
     $servername="localhost";
@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     }
     else{
 
-        $sql="INSERT INTO `user` (`Name`, `Email_Id`, `Phone_No`, `Country`) VALUES ('$name', '$email', '$phone', '$country')";
+        $sql="INSERT INTO `user` (`Name`, `Email_Id`, `Phone_No`, `Password`) VALUES ('$name', '$email', '$phone', '$passwrd')";
         $result=mysqli_query($conn,$sql);
 
         if($result){
@@ -60,8 +60,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             <input type="email" name="email" placeholder="Enter Your Email-Id">
             <p>Phone No.</p>
             <input type="phone" name="phone" placeholder="Enter Your PhoneNo.">
-            <p>Country</p>
-            <input type="country" name="country" placeholder="Enter Your Country Name">
+            <p>Password</p>
+            <input type="password" name="passwrd" placeholder="Create your Password">
             <button type="submit">Submit</button>
         </form>
         <form action="index.php" method="post">
