@@ -13,7 +13,7 @@ session_start();
 </head>
 <body>
  
-<form method="post" action="">
+<form method="post" action="register-players.php">
     <div class="welcome">
         <h1>Start playing Tic Tac Toe!</h1>
         <h2>Please fill in your names</h2>
@@ -22,7 +22,7 @@ session_start();
         <div class="p-name">
             <label for="player-x"> YOU </label>
             
-            <input type="text" id="player-x" name="player-x" value= "<?php echo $_SESSION['namee']?>" required />
+            <input type="text" id="player-x" name="player-x" value= "<?php echo $_SESSION['namee']?>" />
             
         </div>
 
@@ -36,3 +36,4 @@ session_start();
 </form>
 </body>
 </html>
+
