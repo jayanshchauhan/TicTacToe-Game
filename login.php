@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             <p>Email Id</p>
             <input type="text" name="email" placeholder="Enter your Email Id">
             <p>Password</p>
-            <input type="text" name="passwrd" placeholder="Enter your Password">
+            <input type="password" name="passwrd" placeholder="Enter your Password">
             <button type="submit">Login</button>
         </form>
         <form action="index.php" method="post">
