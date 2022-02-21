@@ -17,9 +17,8 @@ session_start();
 
 <?php 
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    $email=$_POST['email'];
-    $passwrd=$_POST['passwrd'];
-    $_SESSION['namee']="$email";
+   
+    
  
     $servername="localhost";
     $username="root";
@@ -28,12 +27,17 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     $conn=mysqli_connect($servername,$username,$password,$database);
 
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $passwrd = mysqli_real_escape_string($conn, $_POST['passwrd']);
+    $passwrd = md5($passwrd);
+    $_SESSION['namee']="$email";
+
     if(!$conn)
     {
         die("Sorry We failed to connect ".mysqli_connect_error());
     }
     else{
-        $sql="SELECT * FROM `user` WHERE Email_Id='$email' and Password='$passwrd'";
+        $sql="SELECT * FROM `user` WHERE Email_Id='$email' and '$passwrd'";
         $result=mysqli_query($conn,$sql);
         
        
@@ -48,11 +52,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     header("location: welcome.php");
 
     
-    
-    
         }
         else{
-            echo "Sorry You have not registered yet! Please register yourself first";
+            echo "<strong>Sorry Maybe You have not registered yet <br>Or You have done wrong details!<br> Or Please register yourself first </strong>";
         }
     }
 }

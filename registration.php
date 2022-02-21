@@ -15,9 +15,9 @@
 <?php 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $name=$_POST['name'];
-    $email=$_POST['email'];
+
     $phone=$_POST['phone'];
-    $passwrd=$_POST['passwrd'];
+    
                                 
 
     $servername="localhost";
@@ -26,6 +26,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $database="userdetails";
 
     $conn=mysqli_connect($servername,$username,$password,$database);
+
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $passwrd = mysqli_real_escape_string($conn, $_POST['passwrd']);
+    $passwrd = md5($passwrd);
 
     if(!$conn)
     {
