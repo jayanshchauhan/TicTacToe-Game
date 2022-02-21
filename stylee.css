@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #b3b8b4;
 }
 
 body, input, button {
