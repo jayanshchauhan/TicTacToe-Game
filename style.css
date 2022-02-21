@@ -58,7 +58,7 @@ button[disabled] {
 border-color: blue;
 }
 
-.wrapper td {
+.wrapper td {   
     text-align: center;
     vertical-align: middle;
 }
@@ -74,17 +74,17 @@ border-color: blue;
 }
 
 .tic-tac-toe .vertical-border {
-    border-left-color: blue;
-    border-right-color: blue;
+    border-left-color: rgb(255, 30, 0);
+    border-right-color: rgb(255, 30, 0);
 }
 
 .tic-tac-toe .horizontal-border {
-    border-top-color: blue;
-    border-bottom-color: blue;
+    border-top-color: rgb(255, 30, 0);
+    border-bottom-color: rgb(255, 30, 0)
 }
 
 .tic-tac-toe .center-border {
-    border-color:blue;
+    border-color:rgb(255, 30, 0);
 }
 
 .welcome .p-name {
