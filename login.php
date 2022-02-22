@@ -78,9 +78,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <h1>Login Form</h1>
         <form action="login.php" method="post">
             <p>Email Id</p>
-            <input type="text" name="email" placeholder="Enter your Email Id">
+            <input type="text" name="email" placeholder="Enter your Email Id" required>
             <p>Password</p>
-            <input type="password" name="passwrd" placeholder="Enter your Password">
+            <input type="password" name="passwrd" placeholder="Enter your Password" required>
             <button type="submit">Login</button>
         </form>
         <form action="index.php" method="post">

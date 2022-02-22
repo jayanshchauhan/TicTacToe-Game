@@ -82,13 +82,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <h1>Registration Form</h1>
         <form action="/tictactoegame/registration.php" method="post">
             <p><b>Name</b></p>
-            <input type="name" name="name" placeholder="Enter Your Name">
+            <input type="name" name="name" placeholder="Enter Your Name" required>
             <p><b>Email Id</b></p>
-            <input type="email" name="email" placeholder="Enter Your Email-Id">
+            <input type="email" name="email" placeholder="Enter Your Email-Id" required>
             <p><b>Phone No.</b></p>
-            <input type="phone" name="phone" placeholder="Enter Your PhoneNo.">
+            <input type="phone" name="phone" placeholder="Enter Your PhoneNo." required>
             <p><b>Password</b></p>
-            <input type="password" name="passwrd" placeholder="Create your Password">
+            <input type="password" name="passwrd" placeholder="Create your Password" required>
             <button type="submit">Submit</button>
         </form>
         <form action="index.php" method="post">
