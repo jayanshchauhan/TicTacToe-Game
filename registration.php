@@ -1,4 +1,7 @@
-
+<?php
+// Start the session
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -39,6 +42,16 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         $sql="INSERT INTO `user` (`Name`, `Email_Id`, `Phone_No`, `Password`) VALUES ('$name', '$email', '$phone', '$passwrd')";
         $result=mysqli_query($conn,$sql);
+
+        $sql1="SELECT * FROM `user` WHERE Email_Id='$email' and '$passwrd'";
+        $result=mysqli_query($conn,$sql1);
+        $row = mysqli_fetch_array($result);
+
+        $userId=$row['User_Id'];
+        $_SESSION['userid']=$userId;
+
+        $sql2="INSERT INTO `game_table` VALUES ('$userId', 0, 0, 0)";
+        $result1=mysqli_query($conn,$sql2);
 
         if($result){
       

@@ -44,6 +44,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
         if($result->num_rows>0){
             $row = mysqli_fetch_array($result);
+
+            $userId=$row['User_Id'];
+            $_SESSION['userid']=$userId;
+
             $_SESSION['namee']=$row['Name'];
     echo '<div class="alert alert-success">
     <strong>Success!</strong>
