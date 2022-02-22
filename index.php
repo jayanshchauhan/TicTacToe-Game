@@ -42,11 +42,16 @@ header("location:login.php");
 }
 ?>
 <button name="registration" type="register">Register </button>
+
 <?php
+
 if(isset($_POST["registration"])){
 header("location:registration.php");
 }
 ?>
+</form>
+<form action="userdetails.php" method="post">
+<button type="home">User Details</button>
 </form>
         </div>
     </body>
