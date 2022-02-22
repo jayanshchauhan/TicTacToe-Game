@@ -9,14 +9,16 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WelcomePage</title>
-    <link rel='stylesheet' href='stylee.css' type='text/css'/>
+    <link rel='stylesheet' href='style.css' type='text/css'/>
 </head>
 <body>
  
 <form method="post" action="register-players.php">
     <div class="welcome">
-        <h1>Start playing Tic Tac Toe!</h1>
-        <h2>Please fill in your names</h2>
+        
+    <h1> Welcome <?php echo $_SESSION['namee'];?> </h1>
+        <h2>Start playing Tic Tac Toe!</h2>
+        
 
 
         <div class="p-name">

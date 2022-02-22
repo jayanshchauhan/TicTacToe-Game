@@ -44,10 +44,10 @@ resetBoard();
                                
     
                             }else{
-                                echo "NO";
+                              
                                 $id=$_SESSION['userid'];
 
-                                $sql = "UPDATE game_table set Total_Wins=Total_Loss+1,Total_Played=Total_Played+1 where User_Id='$id'";
+                                $sql = "UPDATE game_table set Total_Loss=Total_Loss+1,Total_Played=Total_Played+1 where User_Id='$id'";
                                 $result=mysqli_query($conn,$sql);
                             }
                             

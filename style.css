@@ -49,7 +49,7 @@ button[disabled] {
 .welcome h1,
 .welcome h2 {
     text-align: center;
-    color: blue;
+    color: rgb(1, 1, 8);
     font-family: arial black; 
 }
 
@@ -68,7 +68,7 @@ border-color: blue;
 }
 
 .tic-tac-toe td {
-    border: 2px solid rgb(108, 4, 245);
+    border: 2px solid rgb(77, 15, 247);
     width: 80px;
     height: 80px;
 }
