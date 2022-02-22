@@ -9,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WelcomePage</title>
-    <link rel='stylesheet' href='style.css' type='text/css'/>
+    <link rel='stylesheet' href='stylee.css' type='text/css'/>
 </head>
 <body>
  
@@ -31,7 +31,8 @@ session_start();
             <input type="text" id="player-o" name="player-o" required />
         </div>
 
-        <button type="submit">Start</button>
+        <button type="submit">Start</button><br>
+        <a href="index.php" class="reset-btn"><h3><strong> LOG OUT</strong></h3></a>
     </div>
 </form>
 </body>

@@ -83,7 +83,7 @@ resetBoard();
 
                 <a href="play.php">Play again</a><br />
 
-                <a href="index.php" class="reset-btn">Reset</a>
+                <a href="index.php" class="reset-btn">LOG OUT</a>
             </div>
 
         </td>

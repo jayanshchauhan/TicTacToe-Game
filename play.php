@@ -44,9 +44,9 @@ if (playsCount() >= 9) {
             
             <td >
                 <?php if (getCell($i) === 'x'): ?>
-                    X
+                    ✖️
                 <?php elseif (getCell($i) === 'o'): ?>
-                    O
+                    ⚫
                 <?php else: ?>
                     <input type="radio" name="cell" value="<?= $i ?>" onclick="enableButton()"/>
                 <?php endif; ?>
@@ -59,6 +59,8 @@ if (playsCount() >= 9) {
     </table>
 
     <button type="submit" disabled id="play-btn">Play</button>
+
+    <a href="index.php" class="reset-btn"><h3><strong> LOG OUT</strong></h3></a>
 
 </form>
 

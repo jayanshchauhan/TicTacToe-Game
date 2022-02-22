@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +13,10 @@
     <body>
         <div class="main-form"> 
             <h1>Welcome to the world of TIC TAC TOE Game:</h1>
+<?php
+            session_unset();
+            session_destroy();
+            ?>
 
          <!--   <form action="login.php" method="post">
                 <button type="login">Login </button>
