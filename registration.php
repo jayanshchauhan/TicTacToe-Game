@@ -10,6 +10,16 @@ session_start();
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Registration Form</title>
+        <style>
+            button{
+                
+        font-size: .9rem;
+        margin-top: 60px;
+        margin-left: 650px;
+        color:white;
+        background-color: black;
+}
+</style>
         <link rel="stylesheet" href="registrationn.css">
     </head>
 
@@ -71,13 +81,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <div class="registration-form">
     <h1>Registration Form</h1>
         <form action="/tictactoegame/registration.php" method="post">
-            <p>Name</p>
+            <p><b>Name</b></p>
             <input type="name" name="name" placeholder="Enter Your Name">
-            <p>Email Id</p>
+            <p><b>Email Id</b></p>
             <input type="email" name="email" placeholder="Enter Your Email-Id">
-            <p>Phone No.</p>
+            <p><b>Phone No.</b></p>
             <input type="phone" name="phone" placeholder="Enter Your PhoneNo.">
-            <p>Password</p>
+            <p><b>Password</b></p>
             <input type="password" name="passwrd" placeholder="Create your Password">
             <button type="submit">Submit</button>
         </form>

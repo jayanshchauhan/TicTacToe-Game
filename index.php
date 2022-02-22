@@ -8,6 +8,15 @@ session_start();
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tic-Tac-Toe</title>
+        <style>
+            button{
+        font-size: .9rem;
+        margin-top: 60px;
+        margin-left: 650px;
+        color:white;
+        background-color: black;
+}
+</style>
         <link rel="stylesheet" href="indexx.css">
     </head>
     <body>

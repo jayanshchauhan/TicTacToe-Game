@@ -10,6 +10,15 @@ session_start();
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Login Form</title>
+        <style>
+            button{
+        font-size: .9rem;
+        margin-top: 60px;
+        margin-left: 650px;
+        color:white;
+        background-color: black;
+}
+</style>
         <link rel="stylesheet" href="loginn.css">
     </head>
 
