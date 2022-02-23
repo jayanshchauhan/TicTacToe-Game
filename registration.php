@@ -20,7 +20,7 @@ session_start();
         background-color: black;
 }
 </style>
-        <link rel="stylesheet" href="registrationn.css">
+        <link rel="stylesheet" href="registration.css">
     </head>
 
 <body>

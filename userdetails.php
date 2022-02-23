@@ -11,7 +11,10 @@
     font-weight: 400;
     line-height: 1.6;
     text-align: left;
-    background-color: #b3b8b4;
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+    background: linear-gradient(to right,#9c27b0,#8ecdff);
 }
     div {
   margin-top: 50px;

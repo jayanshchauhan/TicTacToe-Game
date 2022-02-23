@@ -19,7 +19,7 @@ session_start();
         background-color: black;
 }
 </style>
-        <link rel="stylesheet" href="loginn.css">
+        <link rel="stylesheet" href="login.css">
     </head>
 
 <body> 
