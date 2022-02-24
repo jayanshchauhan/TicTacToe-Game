@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     
         }
         else{
-            echo "<strong>Sorry Maybe You have not registered yet <br>Or You have done wrong details!<br> Or Please register yourself first </strong>";
+            echo "<strong>Invalid Credentials!</strong>";
         }
     }
 }

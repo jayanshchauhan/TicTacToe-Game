@@ -26,13 +26,10 @@ session_start();
 <body>
 
 <?php 
+if(isset($_POST['submitt'])){
+
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    $name=$_POST['name'];
-
-    $phone=$_POST['phone'];
-    
-                                
-
+  
     $servername="localhost";
     $username="root";
     $password="";
@@ -40,9 +37,36 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     $conn=mysqli_connect($servername,$username,$password,$database);
 
+   
+    $name_error="";
+    $email_error="";
+
+    $name=mysqli_real_escape_string($conn,$_POST['name']);
+    $phone=mysqli_real_escape_string($conn,$_POST['phone']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $passwrd = mysqli_real_escape_string($conn, $_POST['passwrd']);
     $passwrd = md5($passwrd);
+
+    if(empty($_POST["name"])){
+        echo '<script>alert("Cannot leave field empty")</script>';
+       die();
+        
+    }
+
+    if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
+        $name_error = "Name must contain only alphabets and space";
+        }
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $email_error = "Please Enter Valid Email ID";
+        }
+    
+    if($name_error!=""){
+        echo '<script>alert("Name must contain only alphabets and space")</script>';
+        die();
+    }else if($email_error!=""){
+        echo '<script>alert("Please Enter Valid Email ID")</script>';
+        die();
+    }
 
     if(!$conn)
     {
@@ -75,7 +99,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         }
     }
 }
-
+}
 ?>
 
 <div class="registration-form">
@@ -89,7 +113,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             <input type="phone" name="phone" placeholder="Enter Your PhoneNo." required>
             <p><b>Password</b></p>
             <input type="password" name="passwrd" placeholder="Create your Password" required>
-            <button type="submit">Submit</button>
+            <button type="submit" name="submitt">Submit</button>
         </form>
         <form action="index.php" method="post">
            <button type="home">Home</button>

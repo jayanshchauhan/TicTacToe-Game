@@ -46,13 +46,19 @@ session_start()
       $database="userdetails";
 
     $connector=mysqli_connect($servername,$username,$password,$database);
+    if(!$_SESSION['userid']){
+      echo '<div class="alert alert-success">
+              <strong>Sorry!</strong> Your Details has not been Updated !
+            </div>';
+            header("location: index.php");
+    }
     $var= $_SESSION['userid'];
 
       $sql="select Name,Email_Id,Phone_No from user where User_Id='$var'";
       $result = mysqli_query($connector,$sql);
       $row = mysqli_fetch_array($result);
 
-      if(isset($_POST['submitt'])){
+      if(isset($_POST['submitt'])&&$var!=NULL){
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
             $var= $_SESSION['userid'];
