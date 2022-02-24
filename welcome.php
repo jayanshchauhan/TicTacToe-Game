@@ -9,7 +9,20 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WelcomePage</title>
+    
     <link rel='stylesheet' href='style.css' type='text/css'/>
+   <style>
+    button{
+        font-size: .9rem;
+        margin-top: 20px;
+        margin-left: 50px;
+        color:white;
+        background-color: black;
+
+}
+</style>
+    
+    
 </head>
 <body>
  
@@ -35,8 +48,13 @@ session_start();
 
         <button type="submit">Start</button><br>
         <a href="index.php" class="reset-btn"><h3><strong> LOG OUT</strong></h3></a>
+        
     </div>
 </form>
+       
 </body>
+<form action="update.php" method="post">
+           <button Update style= "background-color:black ; color:white;margin-bottom:500px;margin-left:500px;" type="home">Update Info. </button>
+        </form>
 </html>
 

@@ -61,9 +61,11 @@ if (playsCount() >= 9) {
     <button type="submit" disabled id="play-btn">Play</button>
 
     <a href="index.php" class="reset-btn"><h3><strong> LOG OUT</strong></h3></a>
+    <a href="welcome.php" class="reset-btn"><h3><strong>Back</strong></h3></a>
 
 </form>
-
+     
+       
 <script type="text/javascript">
     function enableButton() {
         document.getElementById('play-btn').disabled = false;

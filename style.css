@@ -69,7 +69,7 @@ border-color: blue;
 }
 
 .tic-tac-toe td {
-    border: 2px solid rgb(77, 15, 247);
+    border: 2px solid whitesmoke;
     width: 80px;
     height: 80px;
 }
@@ -91,12 +91,12 @@ border-color: blue;
 .welcome .p-name {
     margin: 40px 0;
     font-family: arial black;
-    color: blue;
+    color: rgb(3, 3, 10);
 }
 
 .reset-btn {
     display: inline-block;
     font-size: 10pt;
-    color: blue;
+    color: rgb(1, 1, 14);
     margin-top: 50px;
 }
