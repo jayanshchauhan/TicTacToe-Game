@@ -63,6 +63,13 @@ session_start()
             $var= $_SESSION['userid'];
             $sql1="update user set Name='$name',Email_Id='$email',Phone_No='$phone' WHERE User_Id='$var'";
             $result=mysqli_query($connector,$sql1);
+            if($result){
+      
+              echo '<div class="alert alert-success">
+              <strong>Success!</strong> Your Details has been Updated Successfully!
+            </div>';
+              
+                  }
 
         }
     }

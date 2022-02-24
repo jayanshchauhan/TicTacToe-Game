@@ -28,7 +28,10 @@ session_start();
  
 <form method="post" action="register-players.php">
     <div class="welcome">
-        
+<?php
+    if(!$_SESSION['namee'])
+    header("location: index.php");
+     ?>   
     <h1> Welcome <?php echo $_SESSION['namee'];?> </h1>
         <h2>Start playing Tic Tac Toe!</h2>
         
