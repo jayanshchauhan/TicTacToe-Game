@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!doctype html>
     <html lang="en">
     <head>
@@ -40,6 +43,11 @@
         $database="userdetails";
 
         $connector=mysqli_connect($servername,$username,$password,$database);
+        
+        $var= $_SESSION['userid'];
+        $status="Online";
+        $sql1="update game_table set Status='$status' WHERE User_Id='$var'";
+        $result1 = mysqli_query($connector,$sql1);
 
       $sql="select User_Id,Name,Email_Id,Phone_No,Total_Wins,Total_Loss,Total_Played,Status from user natural join game_table";
       $result = mysqli_query($connector,$sql);
@@ -86,7 +94,7 @@
       </tbody>
     </table>
 
-    <form action="index.php" method="post">
+    <form action="Welcome.php" method="post">
            <button type="home">Home</button>
         </form>
         

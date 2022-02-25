@@ -48,7 +48,22 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $passwrd = md5($passwrd);
 
     if(empty($_POST["name"])){
-        echo '<script>alert("Cannot leave field empty")</script>';
+        echo '<script>alert("You must enter your Name")</script>';
+       die();
+        
+    }
+    if(empty($_POST["phone"])){
+        echo '<script>alert("You must enter your Phone No.")</script>';
+       die();
+        
+    }
+    if(empty($_POST["email"])){
+        echo '<script>alert("You must enter your Email")</script>';
+       die();
+        
+    }
+    if(empty($_POST["passwrd"])){
+        echo '<script>alert("You must enter your Password")</script>';
        die();
         
     }

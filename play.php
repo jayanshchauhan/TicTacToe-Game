@@ -1,3 +1,4 @@
+
 <?php
 require_once "templates/header.php";
 
@@ -17,6 +18,8 @@ if (playsCount() >= 9) {
     header("location: result.php");
 }
 ?>
+
+
 
 <h2><?php echo currentPlayer() ?>'s turn</h2>
 
@@ -60,12 +63,10 @@ if (playsCount() >= 9) {
 
     <button type="submit" disabled id="play-btn">Play</button>
 
-    <a href="index.php" class="reset-btn"><h3><strong> LOG OUT</strong></h3></a>
-    <a href="welcome.php" class="reset-btn"><h3><strong>Back</strong></h3></a>
-
 </form>
      
        
+
 <script type="text/javascript">
     function enableButton() {
         document.getElementById('play-btn').disabled = false;

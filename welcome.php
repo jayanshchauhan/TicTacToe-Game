@@ -46,16 +46,21 @@ session_start();
 
         <div class="p-name">
             <label for="player-o"> Opponent Player </label>
-            <input type="text" id="player-o" name="player-o" required />
+            <input type="text" id="player-o" name="player-o" required/>
         </div>
 
         <button type="submit">Start</button><br>
-        <a href="index.php" class="reset-btn"><h3><strong> LOG OUT</strong></h3></a>
-        
+
     </div>
 </form>
        
 </body>
+<form action="index.php" method="post">
+           <button Update style= "background-color:black ; color:white;margin-top:55px;margin-right:50px;margin-left:100px;position:absolute; top:0; right:0;" type="home">Log Out</button>
+        </form>
+<form action="userdetailswithonline.php" method="post">
+           <button Update style= "background-color:black ; color:white;margin-top:125px;margin-right:193px;margin-left:300px;position:absolute; top:0; right:0;" type="home">User Details</button>
+        </form>
 <form action="update.php" method="post">
            <button Update style= "background-color:black ; color:white;margin-bottom:500px;margin-left:500px;" type="home">Update Info. </button>
         </form>

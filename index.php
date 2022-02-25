@@ -26,10 +26,9 @@ session_start();
             <nav>
 
 
-
+            
                 <?php
-                    session_unset();
-                    session_destroy();
+                require_once "reset.php"; 
                     ?>
                 <ul>
                     <form method="post">

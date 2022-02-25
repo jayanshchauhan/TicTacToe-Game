@@ -41,6 +41,17 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $passwrd = md5($passwrd);
     $_SESSION['namee']="$email";
 
+    if(empty($_POST["email"])){
+        echo '<script>alert("You must enter your Email")</script>';
+       die();
+        
+    }
+    if(empty($_POST["passwrd"])){
+        echo '<script>alert("You must enter your Password.")</script>';
+       die();
+        
+    }
+
     if(!$conn)
     {
         die("Sorry We failed to connect ".mysqli_connect_error());

@@ -61,8 +61,6 @@ session_start()
       if(isset($_POST['submitt'])&&$var!=NULL){
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
-            $var= $_SESSION['userid'];
-
             $name=$_POST['namee'];
             $email=$_POST['emaill'];
             $phone=$_POST['phonee'];

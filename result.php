@@ -14,7 +14,7 @@ resetBoard();
 
             <div class="welcome">
 
-                <h1>
+             <strong>   <h1>
                     <?php
 
                     $servername="localhost";
@@ -35,9 +35,6 @@ resetBoard();
                             if(currentPlayer()==$_SESSION['namee']){
 
                                 $id=$_SESSION['userid'];
-
-                  //             echo "<br>"; print_r($_SESSION);
-
 
                                 $sql = "UPDATE game_table set Total_Wins=Total_wins+1,Total_Played=Total_Played+1 where User_Id='$id'";
                                 $result=mysqli_query($conn,$sql);
@@ -71,19 +68,18 @@ resetBoard();
                         }
                     }
                     ?>
-                </h1>
+                </h1></strong>
 
                 <div class="player-name">
-                    <?php echo playerName('x')?>'s score: <b><?php echo score('x')?></b>
+                 <h3>   <?php echo playerName('x')?>'s score: <b><?php echo score('x')?></b></h3>
                 </div>
 
                 <div class="player-name">
-                    <?php echo playerName('o')?>' score: <b><?php echo score('o')?></b>
+                  <h3>  <?php echo playerName('o')?>' score: <b><?php echo score('o')?></b></h3>
                 </div>
 
                 <a href="play.php">Play again</a><br />
 
-                <a href="index.php" class="reset-btn">LOG OUT</a>
             </div>
 
         </td>
