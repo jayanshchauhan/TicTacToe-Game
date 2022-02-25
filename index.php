@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,11 +22,6 @@ session_start();
 
             <nav>
 
-
-            
-                <?php
-                require_once "reset.php"; 
-                    ?>
                 <ul>
                     <form method="post">
                  <li>   <button name ="login" type="login">Login </button>   </li>

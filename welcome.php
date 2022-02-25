@@ -55,7 +55,7 @@ session_start();
 </form>
        
 </body>
-<form action="index.php" method="post">
+<form action="logout.php" method="post">
            <button Update style= "background-color:black ; color:white;margin-top:55px;margin-right:50px;margin-left:100px;position:absolute; top:0; right:0;" type="home">Log Out</button>
         </form>
 <form action="userdetailswithonline.php" method="post">
