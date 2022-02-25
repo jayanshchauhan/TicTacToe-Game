@@ -1,3 +1,4 @@
+<?php require_once "logout2.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,6 +20,8 @@
     <body>
         <div class="main-form"> 
             <h1>Welcome to the world of TIC TAC TOE Game:</h1>
+
+      
 
             <nav>
 
