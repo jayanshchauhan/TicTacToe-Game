@@ -84,7 +84,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     }
 
     if (mysqli_num_rows(mysqli_query($conn, "select * from user where Email_Id = '$email'")) > 0) {
-     
         echo '<script>alert("Email is already present!")</script>';
         die();
     }
