@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+if(!$_SESSION['namee'])
+header("location: index.php");
 
 require_once "functions.php";
 

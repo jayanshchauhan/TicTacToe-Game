@@ -46,6 +46,10 @@ session_start()
       $database="userdetails";
 
     $connector=mysqli_connect($servername,$username,$password,$database);
+  
+    if(!$_SESSION['namee'])
+    header("location: index.php");
+      
     if(!$_SESSION['userid']){
       echo '<div class="alert alert-success">
               <strong>Sorry!</strong> Your Details has not been Updated !

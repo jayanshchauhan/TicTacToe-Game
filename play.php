@@ -1,6 +1,10 @@
 
 <?php
+
 require_once "templates/header.php";
+
+if(!$_SESSION['namee'])
+header("location: index.php");
 
 if (! playersRegistered()) {
     header("location: index.php");

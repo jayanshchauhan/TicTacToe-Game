@@ -41,9 +41,12 @@ session_start()
         $username="root";
         $password="";
         $database="userdetails";
-
+   
         $connector=mysqli_connect($servername,$username,$password,$database);
-        
+      
+    if(!$_SESSION['namee'])
+    header("location: index.php");
+     
         $var= $_SESSION['userid'];
         $status="Online";
         $sql1="update game_table set Status='$status' WHERE User_Id='$var'";
