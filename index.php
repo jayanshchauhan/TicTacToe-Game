@@ -1,6 +1,7 @@
 <?php require_once "logout2.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,19 +13,16 @@
         margin-top: 60px;
         margin-left: 650px;
         color:white;
-        background-color: black;
-}
-    </style>
+        background-color: black;}
+
+        </style>
         <link rel="stylesheet" href="index.css">
     </head>
+    
     <body>
         <div class="main-form"> 
             <h1>Welcome to the world of TIC TAC TOE Game:</h1>
-
-      
-
             <nav>
-
                 <ul>
                     <form method="post">
                  <li>   <button name ="login" type="login">Login </button>   </li>
@@ -34,9 +32,7 @@
                     }
                     ?>
                  <li>   <button name="registration" type="register">Register </button>   </li>
-
                     <?php
-
                     if(isset($_POST["registration"])){
                     header("location:registration.php");
                     }
@@ -45,7 +41,6 @@
                     <form action="userdetails.php" method="post">
                  <li>   <button type="home">User Details</button>     </li>
                     </form>
-
                 </ul>
             </nav>
         </div>

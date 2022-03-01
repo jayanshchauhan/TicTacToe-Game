@@ -23,8 +23,6 @@ if (playsCount() >= 9) {
 }
 ?>
 
-
-
 <h2><?php echo currentPlayer() ?>'s turn</h2>
 
 <form method="post" action="play.php">
@@ -69,8 +67,6 @@ if (playsCount() >= 9) {
 
 </form>
      
-       
-
 <script type="text/javascript">
     function enableButton() {
         document.getElementById('play-btn').disabled = false;
