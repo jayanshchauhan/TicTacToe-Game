@@ -21,7 +21,7 @@
     
     <body>
         <div class="main-form"> 
-            <h1>Welcome to the world of TIC TAC TOE Game:</h1>
+            <h1>Welcome to the world:</h1>
             <nav>
                 <ul>
                     <form method="post">
