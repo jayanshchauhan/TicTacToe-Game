@@ -1,82 +1,47 @@
-<?php
-session_start();
-$action = $_GET['action'] ?? $_POST['action'] ?? 'home';
+<!DOCTYPE html>
+<html lang="en">
 
-if ($action == 'blog-all') {
-    if (isset($_POST['submit'])) {
-        $username = $_POST['name'];
-        $password =  $_POST['password'];
-        include_once 'model/user.php';
-        $user_login = new user();
-        $rows = $user_login->getuserbyemail($username);
-        if (!empty($rows)) {
-            $cnt = 0;
-            foreach ($rows as $row) {
-                if (password_verify($password, $row['password'])) {
-                    $cnt = 1;
-                    $_SESSION['USER_LOGIN'] = 'yes';
-                    $_SESSION['USER_USERNAME'] = $username;
-                    // include_once 'models/user.php';
-                    // $user = new user();
-                    // $user->updateuserstatus(true, $username);
-                    if (isset($_POST['remember'])) {
-                        setcookie("username", $username, time() + 1 * 60 * 60);
-                    } else {
-                        if (isset($_COOKIE['username'])) {
-                            setcookie("username", "");
-                        }
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic-Tac-Toe</title>
+        <style>
+            button{
+        font-size: .9rem;
+        margin-top: 60px;
+        margin-left: 650px;
+        color:white;
+        background-color: black;}
+
+        </style>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    
+    <body>
+        <div class="main-form"> 
+            <h1>Welcome to the world of TIC TAC TOE Game:</h1>
+            <nav>
+                <ul>
+                    <form method="post">
+                 <li>   <button name ="login" type="login">Login </button>   </li>
+                    <?php
+                    if(isset($_POST["login"])){
+                    header("location:views/login.php");
                     }
-                }
-            }
-            if ($cnt === 0) {
-                $msg = "Password is Incorrect";
-                header('location:index.php?action=login&Message=' . $msg);
-            }
-        } else {
-            $msg = "Please Enter Correct login details <br> If you are new then Register Yourself First!";
-            header('location:index.php?action=login&Message=' . $msg);
-        }
-    } elseif (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] != '') {
-        
-        require_once 'view/welcome.php';
-    } else {
-        require_once 'view/login.php';
-    }
-} elseif ($action == 'registration') {
-    require_once 'view/registration.php';
-} elseif ($action == 'add-user') {
-    require_once 'controller/usercontroller.php';
-    $usertrue = add_user();
-    $message = "User Added";
-    if ($usertrue === $message) {
-        $msg = urlencode('Account Created LogIn Now');
-        header('location:index.php?action=login&Message=' . $msg);
-    } else {
-        if (!empty($usertrue[0])) {
-            $nameErr = $usertrue[0];
-        }
-        if (!empty($usertrue[1])) {
-            $emailErr = $usertrue[1];
-        }
-        if (!empty($usertrue[2])) {
-            $phoneErr = $usertrue[2];
-        }
-        if (!empty($usertrue[3])) {
-            $passwordErr = $usertrue[3];
-        }
-
-        require_once 'view/registration.php';
-    }
-} elseif ($action == 'login') {
-    require_once 'view/login.php';
-}else {
-    if (isset($_POST['login'])) {
-        header('location:index.php?action=login');
-        if (isset($_POST['submit'])) {
-        }
-    } elseif (isset($_POST['register'])) {
-        header('location:index.php?action=registration');
-    } else {
-        require_once 'view/home.php';
-    }
-}
+                    ?>
+                 <li>   <button name="registration" type="register">Register </button>   </li>
+                    <?php
+                    if(isset($_POST["registration"])){
+                    header("location:views/register.php");
+                    }
+                    ?>
+                    </form>
+                    <form action="userdetails.php" method="post">
+                 <li>   <button type="home">User Details</button>     </li>
+                    </form>
+                </ul>
+            </nav>
+        </div>
+    </body>
+</html>

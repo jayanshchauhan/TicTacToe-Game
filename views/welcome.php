@@ -27,8 +27,11 @@ session_start();
     
     <form method="post" action="register-players.php">
         <div class="welcome">
-      
-        <h1> Welcome  </h1>
+    <?php
+        if(!$_SESSION['username'])
+        header("location:../index.php");
+        ?>   
+        <h1> Welcome <?php echo $_SESSION['username'];?> </h1>
             <h2>Start playing Tic Tac Toe!</h2>
             
 
@@ -36,7 +39,7 @@ session_start();
             <div class="p-name">
                 <label for="player-x"> YOU </label>
                 
-                <input type="text" id="player-x" name="player-x" value= "<?php echo $_SESSION['namee']?>" />
+                <input type="text" id="player-x" name="player-x" value= "<?php echo $_SESSION['username']?>" />
                 
             </div>
 
@@ -51,8 +54,9 @@ session_start();
     </form>
         
     </body>
-    <form action="logout.php" method="post">
-            <button Update style= "background-color:black ; color:white;margin-top:55px;margin-right:50px;margin-left:100px;position:absolute; top:0; right:0;" type="home">Log Out</button>
+    <form action="../controllers/Users.php" method="post" >
+             <input type="hidden" name="type" value="logout">
+            <button Update style= "background-color:black ; color:white;margin-top:55px;margin-right:50px;margin-left:100px;position:absolute; top:0; right:0;" type="home" name ="logout" >Log Out</button>
             </form>
     <form action="userdetailswithonline.php" method="post">
             <button Update style= "background-color:black ; color:white;margin-top:125px;margin-right:193px;margin-left:300px;position:absolute; top:0; right:0;" type="home">User Details</button>
