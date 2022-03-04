@@ -2,7 +2,6 @@
 
 session_start();
     require_once '../models/User.php';
-  //  require_once '../helpers/session_helper.php';
 
     class Users {
 
@@ -46,7 +45,6 @@ session_start();
 
             //Passed all validation checks.
             //Now going to hash password
-        //    $data['userpwd'] = password_hash($data['userpwd'], PASSWORD_DEFAULT);
             $data['userpwd'] = md5($data['userpwd']);
 
             //Register User
@@ -95,7 +93,6 @@ session_start();
     public function createUserSession($user){
         $_SESSION['username'] = $user->Name;
         $_SESSION['useremail'] = $user->Email_Id;
-   //     header("location:../index.php");
         header("location:../Views/welcome.php");
     }
 
