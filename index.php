@@ -37,7 +37,7 @@
                     }
                     ?>
                     </form>
-                    <form action="userdetails.php" method="post">
+                    <form action="views/userdetails.php" method="post">
                  <li>   <button type="home">User Details</button>     </li>
                     </form>
                 </ul>

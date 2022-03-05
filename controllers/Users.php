@@ -12,8 +12,7 @@ session_start();
         }
 
         public function register(){
-            //Process form
-            
+            //Process form 
             //Sanitize POST data
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -49,7 +48,11 @@ session_start();
 
             //Register User
             if($this->userModel->register($data)){
+                $userid=$this->userModel->findUserByEmailOrUsername($data['useremail']);
+                $userid=$userid->User_Id;
+                if($this->userModel->registergame($userid)){
                 header("location:../Views/login.php");
+                }
             }else{
                 die("Something went wrong");
             }
@@ -90,13 +93,70 @@ session_start();
         }
     }
 
+    public function update(){
+        //Process form 
+        //Sanitize POST data
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+        //Init data
+        $data = [
+            'username' => trim($_POST['username']),
+            'userphoneno' => trim($_POST['userphoneno']),
+        ];
+
+        //Validate inputs
+        if(empty($data['username']) || empty($data['userphoneno'])){
+            echo '<script>alert("Please fill out all inputss")</script>';
+            die();
+        }
+        
+        $useremail= $_SESSION['useremail'];
+
+        if($this->userModel->findUserByEmailOrUsername($useremail)){
+    
+            if($this->userModel->update($data,$useremail)){
+                
+                header("location:../views/userdetailswithonline.php");
+                exit();
+            }else{
+                echo '<script>alert("Not Updated")</script>';
+                die();
+            }
+        }else{
+            echo '<script>alert("No User Found!")</script>';
+                die();
+        }
+    }
+
+    public function userdetails(){
+        $rowcolumn=$this->userModel->userdetails();
+        if($rowcolumn){
+            return $rowcolumn;
+        }else{
+            echo '<script>alert("No Details Found!")</script>';
+                die();
+        }
+    }
+
+    public function updateonline($var){
+        $status="Online";
+        $row=$this->userModel->updateonline($var,$status);
+    }
+
     public function createUserSession($user){
+        $_SESSION['userid']=$user->User_Id;
         $_SESSION['username'] = $user->Name;
         $_SESSION['useremail'] = $user->Email_Id;
+        $_SESSION['userphoneno'] = $user->Phone_No;
         header("location:../Views/welcome.php");
     }
 
     public function logout(){
+
+        $ostatus="Online";
+        $nstatus="Offline";
+        $row=$this->userModel->updateoffline($ostatus,$nstatus);
+
         unset($_SESSION['username']);
         unset($_SESSION['useremail']);
         session_destroy();
@@ -107,7 +167,8 @@ session_start();
     $init = new Users;
 
     //Ensure that user is sending a post request
-    if(isset($_POST['register'])||isset($_POST['login'])||isset($_POST['logout'])){
+
+    if(isset($_POST['register'])||isset($_POST['login'])||isset($_POST['logout'])||isset($_POST['submitt'])){
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         switch($_POST['type']){
             case 'register':
@@ -119,6 +180,9 @@ session_start();
             case 'logout':
                 $init->logout();
                 break;
+            case 'submitt':
+                $init->update();
+                break;    
             default:
             header("location:../index.php");
         }
