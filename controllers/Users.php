@@ -1,5 +1,4 @@
 <?php
-
 session_start();
     require_once '../models/User.php';
 
@@ -143,11 +142,39 @@ session_start();
         $row=$this->userModel->updateonline($var,$status);
     }
 
+    public function updatewins($var){
+        $row=$this->userModel->updatewins($var);
+        if(!$row){
+            echo '<script>alert("No Updation done!")</script>';
+                die();
+        }
+    }
+
+    public function updateloss($var){
+    
+        $row=$this->userModel->updateloss($var);
+        if(!$row){
+            echo '<script>alert("No Updation done!")</script>';
+                die();
+        }
+    }
+
+    public function updatetie($var){
+    
+        $row=$this->userModel->updatetie($var);
+        if(!$row){
+            echo '<script>alert("No Updation done!")</script>';
+                die();
+        }
+    }
+
     public function createUserSession($user){
         $_SESSION['userid']=$user->User_Id;
         $_SESSION['username'] = $user->Name;
         $_SESSION['useremail'] = $user->Email_Id;
         $_SESSION['userphoneno'] = $user->Phone_No;
+        $status="Online";
+        $this->userModel->updateonline($user->User_Id,$status);
         header("location:../Views/welcome.php");
     }
 
@@ -159,9 +186,13 @@ session_start();
 
         unset($_SESSION['username']);
         unset($_SESSION['useremail']);
+        unset($_SESSION['userid']);
+        unset($_SESSION['userphoneno']);
+
         session_destroy();
         header("location:../index.php");
     }
+
 }
 
     $init = new Users;

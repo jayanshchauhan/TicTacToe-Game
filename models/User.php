@@ -41,7 +41,8 @@ class User {
             return false;
         }
     }
-
+    
+    // Inserting data into game table
     public function registergame($userid){ 
         $this->db->query('INSERT INTO game_table (User_Id, Total_Wins, Total_Loss, Total_Played) 
         VALUES (:userid, :wins, :loss, :played)');
@@ -58,13 +59,54 @@ class User {
         }
 
     }
-
+    
+    //Update User
     public function update($data,$useremail){ 
         $this->db->query('Update user set Name= :name,Phone_No= :phoneno WHERE Email_Id= :email');
         //Bind values
         $this->db->bind(':name', $data['username']);
         $this->db->bind(':phoneno', $data['userphoneno']);
         $this->db->bind(':email', $useremail);
+        //Execute
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    //Update Wins
+    public function updatewins($userid){ 
+        $this->db->query('Update game_table set Total_Wins=Total_Wins+1,Total_Played= Total_Played+1 WHERE User_Id= :userid');
+        //Bind values
+        $this->db->bind(':userid', $userid);
+        
+        //Execute
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    //Update Loss
+    public function updateloss($userid){ 
+        $this->db->query('Update game_table set Total_Loss=Total_Loss+1,Total_Played= Total_Played+1 WHERE User_Id= :userid');
+        //Bind values
+        $this->db->bind(':userid', $userid);
+        //Execute
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    //Update Tie
+    public function updatetie($userid){ 
+        $this->db->query('Update game_table set Total_Played= Total_Played+1 WHERE User_Id= :userid');
+        //Bind values
+        $this->db->bind(':userid', $userid);
         //Execute
         if($this->db->execute()){
             return true;
@@ -89,7 +131,8 @@ class User {
             return false;
         }
     }
-
+    
+    //Show Userdetails
     public function userdetails(){
 
         $this->db->query('select User_Id,Name,Email_Id,Phone_No,Total_Wins,Total_Loss,Total_Played,Status from user natural join game_table');
@@ -102,7 +145,8 @@ class User {
             return false;
         }
     }
-
+    
+    //Update Online Status
     public function updateonline($var,$status){
 
         $this->db->query('UPDATE game_table SET Status=:status WHERE User_Id=:var'); 
@@ -110,7 +154,8 @@ class User {
         $this->db->bind(':var', $var);
         $this->db->execute();
     }
-
+    
+    //Update Offline status
     public function updateoffline($ostatus,$nstatus){
 
         $this->db->query('UPDATE game_table SET Status=:nstatus WHERE Status=:ostatus'); 

@@ -19,6 +19,15 @@
     </head>
     
     <body>
+    <?php
+    session_start();
+    
+    if($_SESSION)
+      { //  header("location:controllers/logout2.php");
+        require_once 'controllers/logout2.php';
+    
+            }
+    ?>
         <div class="main-form"> 
             <h1>Welcome to the world of TIC TAC TOE Game:</h1>
             <nav>

@@ -49,10 +49,10 @@
           <tbody>
             <?php
             require_once '../controllers/Users.php';
-        
+
             if(!$_SESSION['username'])
             header("location:../index.php");
-        
+      
             $var= $_SESSION['userid'];
             $rowcolumn=new Users;
             $rowcolumn->updateonline($var);

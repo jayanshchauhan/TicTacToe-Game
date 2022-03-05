@@ -15,6 +15,7 @@ class Database {
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbname;
         $options = array(
             PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
 

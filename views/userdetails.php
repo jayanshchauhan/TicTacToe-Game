@@ -49,9 +49,6 @@
           <tbody>
             <?php
             require_once '../controllers/Users.php';
-
-            if(!$_SESSION['username'])
-            header("location:../index.php");
       
               $rowcolumn=new Users;
 
