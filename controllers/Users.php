@@ -46,10 +46,14 @@ session_start();
             $data['userpwd'] = md5($data['userpwd']);
 
             //Register User
-            if($this->userModel->register($data)){
+            $temp="*";
+
+            if($this->userModel->register($data,$temp)){
                 $userid=$this->userModel->findUserByEmailOrUsername($data['useremail']);
                 $userid=$userid->User_Id;
-                if($this->userModel->registergame($userid)){
+
+                if($this->userModel->register($data,$userid)){
+                    
                 header("location:../Views/login.php");
                 }
             }else{

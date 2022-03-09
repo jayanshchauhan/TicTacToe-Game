@@ -8,7 +8,7 @@ class Database {
 
     private $dbh;
     private $stmt;
-    private $error;
+    private $error; 
 
     public function __construct(){
         //Set DSN
@@ -32,6 +32,20 @@ class Database {
     public function query($sql){
         $this->stmt = $this->dbh->prepare($sql);
     }
+
+    public function transactionstart(){
+         $this->dbh->beginTransaction();
+    }
+
+    public function transactioncommit(){
+        $this->dbh->commit();
+   }
+
+   public function transactionrollback(){
+    $this->dbh->rollBack();
+}
+
+   
 
     //Bind values, to prepared statement using named parameters
     public function bind($param, $value, $type = null){

@@ -25,23 +25,78 @@ class User {
         }
     }
 
-    //Register User
-    public function register($data){ 
-        $this->db->query('INSERT INTO user (Name, Email_Id, Phone_No, Password) 
-        VALUES (:name, :email, :phoneno, :password)');
-        //Bind values
-        $this->db->bind(':name', $data['username']);
-        $this->db->bind(':email', $data['useremail']);
-        $this->db->bind(':phoneno', $data['userphoneno']);
-        $this->db->bind(':password', $data['userpwd']);
-        //Execute
-        if($this->db->execute()){
-            return true;
+    //Find the last user
+    public function findlastuser(){
+        $this->db->query('SELECT max(User_Id) as Abc FROM user');
+
+        $row = $this->db->single();
+
+        //Check row
+        if($this->db->rowCount() > 0){
+            return $row;
         }else{
             return false;
         }
     }
+
+    //Register User
+    public function register($data,$userid){ 
+        if($userid!="*"){
+            goto jump;
+        }
+        try {  
+            $this->db->transactionstart();
+
+            $this->db->query('INSERT INTO user (Name, Email_Id, Phone_No, Password) 
+            VALUES (:name, :email, :phoneno, :password)');
+            //Bind values
+            $this->db->bind(':name', $data['username']);
+            $this->db->bind(':email', $data['useremail']);
+            $this->db->bind(':phoneno', $data['userphoneno']);
+            $this->db->bind(':password', $data['userpwd']);
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+       
+            jump:
+
+            $this->db->query('INSERT INTO game_table (User_Id, Total_Wins, Total_Loss, Total_Played) 
+            VALUES (:userid, :wins, :loss, :played)');
     
+            $this->db->bind(':userid', $userid);
+            $this->db->bind(':wins', 0);
+            $this->db->bind(':loss', 0);
+            $this->db->bind(':played', 0);
+    
+            if($this->db->execute()){
+                $this->db->transactioncommit();
+                return true;
+            }else{
+                return false;
+            }
+        
+    }
+        catch (Exception $e) {
+            $this->db->transactionrollback();
+            echo "Failed: " . $e->getMessage();
+          }
+    }
+  /*  try {  
+        $this->$db->$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      
+        $this->$db->$dbh->beginTransaction();
+        $dbh->exec("insert into staff (id, first, last) values (23, 'Joe', 'Bloggs')");
+        $dbh->exec("insert into salarychange (id, amount, changedate) 
+            values (23, 50000, NOW())");
+        $dbh->commit();
+        
+      } catch (Exception $e) {
+        $dbh->rollBack();
+        echo "Failed: " . $e->getMessage();
+      }
     // Inserting data into game table
     public function registergame($userid){ 
         $this->db->query('INSERT INTO game_table (User_Id, Total_Wins, Total_Loss, Total_Played) 
@@ -58,7 +113,13 @@ class User {
             return false;
         }
 
-    }
+        $this->$db->$dbh->commit();}
+        catch (Exception $e) {
+            $this->$db->$dbh->rollBack();
+            echo "Failed: " . $e->getMessage();
+          }
+
+    }*/
     
     //Update User
     public function update($data,$useremail){ 
