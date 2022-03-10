@@ -84,43 +84,7 @@ class User {
             echo "Failed: " . $e->getMessage();
           }
     }
-  /*  try {  
-        $this->$db->$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      
-        $this->$db->$dbh->beginTransaction();
-        $dbh->exec("insert into staff (id, first, last) values (23, 'Joe', 'Bloggs')");
-        $dbh->exec("insert into salarychange (id, amount, changedate) 
-            values (23, 50000, NOW())");
-        $dbh->commit();
-        
-      } catch (Exception $e) {
-        $dbh->rollBack();
-        echo "Failed: " . $e->getMessage();
-      }
-    // Inserting data into game table
-    public function registergame($userid){ 
-        $this->db->query('INSERT INTO game_table (User_Id, Total_Wins, Total_Loss, Total_Played) 
-        VALUES (:userid, :wins, :loss, :played)');
-
-        $this->db->bind(':userid', $userid);
-        $this->db->bind(':wins', 0);
-        $this->db->bind(':loss', 0);
-        $this->db->bind(':played', 0);
-
-        if($this->db->execute()){
-            return true;
-        }else{
-            return false;
-        }
-
-        $this->$db->$dbh->commit();}
-        catch (Exception $e) {
-            $this->$db->$dbh->rollBack();
-            echo "Failed: " . $e->getMessage();
-          }
-
-    }*/
-    
+ 
     //Update User
     public function update($data,$useremail){ 
         $this->db->query('Update user set Name= :name,Phone_No= :phoneno WHERE Email_Id= :email');
